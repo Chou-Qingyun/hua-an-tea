@@ -1,0 +1,626 @@
+:root {
+  --ink: #17231d;
+  --muted: #667267;
+  --deep: #0f241a;
+  --leaf: #34533b;
+  --sage: #e9eee6;
+  --paper: #fbfaf6;
+  --champagne: #c8a66a;
+  --line: rgba(23, 35, 29, 0.14);
+  --shadow: 0 24px 70px rgba(17, 31, 23, 0.18);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  color: var(--ink);
+  background: var(--paper);
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  line-height: 1.6;
+}
+
+img {
+  display: block;
+  width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 20;
+  width: 100%;
+  height: 76px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 0 clamp(20px, 5vw, 72px);
+  color: #fff;
+  transition: background 180ms ease, color 180ms ease, box-shadow 180ms ease;
+}
+
+.site-header.is-scrolled {
+  color: var(--ink);
+  background: rgba(251, 250, 246, 0.92);
+  box-shadow: 0 12px 34px rgba(22, 35, 29, 0.08);
+  backdrop-filter: blur(16px);
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 208px;
+}
+
+.brand-mark {
+  display: grid;
+  width: 42px;
+  height: 42px;
+  place-items: center;
+  border: 1px solid rgba(200, 166, 106, 0.8);
+  color: var(--champagne);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 16px;
+}
+
+.brand strong,
+.brand small {
+  display: block;
+}
+
+.brand strong {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 18px;
+  line-height: 1.1;
+}
+
+.brand small {
+  margin-top: 2px;
+  color: currentColor;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  opacity: 0.72;
+  text-transform: uppercase;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: clamp(16px, 3vw, 36px);
+  color: currentColor;
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.nav-links a {
+  opacity: 0.82;
+}
+
+.nav-links a:hover {
+  opacity: 1;
+}
+
+.header-cta,
+.primary-button,
+.secondary-button {
+  display: inline-flex;
+  min-height: 46px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid transparent;
+  padding: 0 22px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.header-cta {
+  border-color: rgba(200, 166, 106, 0.8);
+  color: currentColor;
+}
+
+.hero {
+  position: relative;
+  min-height: 96vh;
+  display: grid;
+  align-items: end;
+  overflow: hidden;
+  color: #fff;
+}
+
+.hero-media,
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+}
+
+.hero-media {
+  background:
+    linear-gradient(90deg, rgba(8, 20, 14, 0.2), rgba(8, 20, 14, 0.48)),
+    url("https://upload.wikimedia.org/wikipedia/commons/6/6a/04_Zhejiang_tea_05.1987_01.jpg") center / cover;
+  transform: scale(1.02);
+}
+
+.hero-overlay {
+  background:
+    linear-gradient(180deg, rgba(6, 17, 12, 0.3), rgba(6, 17, 12, 0.74)),
+    radial-gradient(circle at 22% 65%, rgba(200, 166, 106, 0.22), transparent 34%);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  width: min(100%, 860px);
+  padding: 150px clamp(20px, 6vw, 92px) 64px;
+}
+
+.eyebrow {
+  margin: 0 0 14px;
+  color: var(--champagne);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin-top: 0;
+}
+
+h1,
+h2 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 500;
+  line-height: 1.04;
+}
+
+h1 {
+  max-width: 800px;
+  margin-bottom: 24px;
+  font-size: clamp(48px, 7vw, 88px);
+}
+
+h2 {
+  margin-bottom: 22px;
+  font-size: clamp(34px, 4.8vw, 62px);
+}
+
+h3 {
+  margin-bottom: 10px;
+  font-size: 18px;
+  line-height: 1.25;
+}
+
+.hero-copy {
+  max-width: 620px;
+  margin-bottom: 34px;
+  color: rgba(255, 255, 255, 0.82);
+  font-size: clamp(18px, 2vw, 22px);
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-bottom: 52px;
+}
+
+.primary-button {
+  background: var(--champagne);
+  color: #111a14;
+}
+
+.secondary-button {
+  border-color: rgba(255, 255, 255, 0.45);
+  color: #fff;
+}
+
+.hero-facts {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  max-width: 740px;
+  margin: 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.24);
+}
+
+.hero-facts div {
+  padding: 22px 26px 0 0;
+}
+
+.hero-facts dt {
+  color: rgba(255, 255, 255, 0.52);
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.hero-facts dd {
+  margin: 7px 0 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 22px;
+}
+
+.intro,
+.split-section,
+.origin-section,
+.supply-section,
+.gallery-section,
+.seo-section,
+.faq-section,
+.contact-section {
+  padding: clamp(72px, 9vw, 132px) clamp(20px, 6vw, 92px);
+}
+
+.intro {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(280px, 0.75fr);
+  gap: clamp(32px, 8vw, 110px);
+  align-items: start;
+  border-bottom: 1px solid var(--line);
+}
+
+.intro p:last-child,
+.copy-panel > p,
+.origin-copy p,
+.contact-section > div > p {
+  color: var(--muted);
+  font-size: 18px;
+}
+
+.split-section {
+  display: grid;
+  grid-template-columns: minmax(280px, 0.82fr) minmax(320px, 1fr);
+  gap: clamp(32px, 7vw, 92px);
+  align-items: center;
+}
+
+.image-panel {
+  min-height: 640px;
+  background-position: center;
+  background-size: cover;
+  box-shadow: var(--shadow);
+}
+
+.leaves-image {
+  background-image:
+    linear-gradient(180deg, rgba(15, 36, 26, 0.08), rgba(15, 36, 26, 0.2)),
+    url("https://upload.wikimedia.org/wikipedia/commons/4/48/Tieguanyin2.jpg");
+}
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 34px;
+}
+
+.feature-grid article,
+.supply-grid article,
+.contact-card {
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.58);
+}
+
+.feature-grid article {
+  min-height: 172px;
+  padding: 24px;
+}
+
+.feature-grid span {
+  display: block;
+  margin-bottom: 18px;
+  color: var(--champagne);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 24px;
+}
+
+.feature-grid p,
+.supply-grid p,
+.contact-card p {
+  margin-bottom: 0;
+  color: var(--muted);
+}
+
+.origin-section {
+  display: grid;
+  grid-template-columns: minmax(300px, 0.85fr) minmax(300px, 1fr);
+  gap: clamp(36px, 8vw, 110px);
+  align-items: center;
+  background: var(--deep);
+  color: #fff;
+}
+
+.origin-copy p {
+  color: rgba(255, 255, 255, 0.74);
+}
+
+.origin-stats {
+  display: grid;
+  gap: 16px;
+}
+
+.origin-stats div {
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  gap: 20px;
+  align-items: center;
+  padding: 28px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.origin-stats strong {
+  color: var(--champagne);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(32px, 4vw, 52px);
+  font-weight: 500;
+  line-height: 1;
+}
+
+.origin-stats span {
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.supply-section {
+  background: var(--sage);
+}
+
+.section-heading {
+  max-width: 760px;
+  margin-bottom: 40px;
+}
+
+.supply-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.supply-grid article {
+  min-height: 230px;
+  padding: 30px;
+}
+
+.gallery-section {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.gallery-section figure {
+  margin: 0;
+  background: #fff;
+}
+
+.gallery-section img {
+  aspect-ratio: 4 / 5;
+  height: auto;
+  object-fit: cover;
+}
+
+.gallery-section figcaption {
+  padding: 16px 0 0;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.seo-section {
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.seo-columns {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(24px, 5vw, 72px);
+  max-width: 1060px;
+}
+
+.seo-columns p {
+  margin-bottom: 0;
+  color: var(--muted);
+  font-size: 18px;
+}
+
+.faq-section {
+  background: #fff;
+}
+
+.faq-list {
+  display: grid;
+  gap: 14px;
+  max-width: 980px;
+}
+
+.faq-list details {
+  border: 1px solid var(--line);
+  background: var(--paper);
+  padding: 22px 24px;
+}
+
+.faq-list summary {
+  cursor: pointer;
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 22px;
+  line-height: 1.25;
+}
+
+.faq-list p {
+  margin: 16px 0 0;
+  color: var(--muted);
+}
+
+.contact-section {
+  display: grid;
+  grid-template-columns: minmax(300px, 0.88fr) minmax(320px, 0.72fr);
+  gap: clamp(32px, 7vw, 92px);
+  align-items: center;
+  background:
+    linear-gradient(90deg, rgba(251, 250, 246, 0.96), rgba(251, 250, 246, 0.86)),
+    url("https://images.unsplash.com/photo-1544787219-7f47ccb76574?auto=format&fit=crop&w=1800&q=85") center / cover;
+}
+
+.contact-card {
+  padding: clamp(28px, 5vw, 46px);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(10px);
+}
+
+.contact-card span {
+  display: block;
+  margin-bottom: 10px;
+  color: var(--champagne);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.contact-card a {
+  display: inline-block;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+  color: var(--leaf);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(25px, 3vw, 36px);
+  line-height: 1.16;
+}
+
+.contact-card p {
+  margin-top: 22px;
+}
+
+.site-footer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 28px clamp(20px, 6vw, 92px);
+  background: #101914;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 14px;
+}
+
+.site-footer p {
+  margin: 0;
+}
+
+.site-footer a {
+  color: var(--champagne);
+}
+
+@media (max-width: 920px) {
+  .site-header {
+    height: auto;
+    padding-top: 14px;
+    padding-bottom: 14px;
+  }
+
+  .nav-links {
+    display: none;
+  }
+
+  .brand {
+    min-width: 0;
+  }
+
+  .intro,
+  .split-section,
+  .origin-section,
+  .contact-section {
+    grid-template-columns: 1fr;
+  }
+
+  .image-panel {
+    min-height: 420px;
+  }
+
+  .supply-grid,
+  .gallery-section,
+  .seo-columns {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .site-header {
+    gap: 12px;
+  }
+
+  .brand strong {
+    font-size: 16px;
+  }
+
+  .brand small,
+  .header-cta {
+    font-size: 10px;
+  }
+
+  .brand-mark {
+    width: 38px;
+    height: 38px;
+  }
+
+  .header-cta {
+    min-height: 38px;
+    padding: 0 12px;
+  }
+
+  .hero {
+    min-height: 100vh;
+  }
+
+  .hero-content {
+    padding-top: 132px;
+    padding-bottom: 42px;
+  }
+
+  h1 {
+    font-size: 42px;
+  }
+
+  h2 {
+    font-size: 34px;
+  }
+
+  .hero-actions {
+    margin-bottom: 36px;
+  }
+
+  .primary-button,
+  .secondary-button {
+    width: 100%;
+  }
+
+  .hero-facts,
+  .feature-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-facts div {
+    padding-top: 16px;
+  }
+
+  .origin-stats div {
+    grid-template-columns: 1fr;
+  }
+}
